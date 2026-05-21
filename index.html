@@ -110,7 +110,28 @@
         <script>window.onload = GameMaker_Init;</script>
 
         <!-- Builtin injector for injecting google analytics code -->
-        
+        <script>
+            // Função para verificar e aplicar estilos dinâmicos
+            function applyDynamicStyles() {
+                var viewportWidth = window.innerWidth;
+                var viewportHeight = window.innerHeight;
+                var canva = document.getElementById("canvas");
+
+                var dynamicCSS = document.getElementsByTagName("style");
+
+                if (viewportWidth / 16 > viewportHeight / 9) {
+                    canva.style.width = 'auto';
+                    canva.style.height = '100%';
+                } else {
+                    canva.style.width = '100%';
+                    canva.style.height = 'auto'
+                }
+            }
+
+            // Aplicar estilos dinâmicos na inicialização e sempre que a janela for redimensionada
+            window.addEventListener('resize', applyDynamicStyles);
+            applyDynamicStyles(); // Chamar a função uma vez na inicialização
+        </script>
 
     </body>
 

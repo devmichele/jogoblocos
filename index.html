@@ -1,143 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
-    <!-- Custom PreHead code is injected here -->
-    
+<head>
 
-    <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta charset="utf-8"/>
+    <meta charset="UTF-8">
 
-        <!-- Builtin injector for disabling cache -->
-        <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-        <!-- Set the title bar of the page -->
-        <title>Created with GameMaker</title>
+    <meta name="viewport"
+          content="width=device-width,
+          height=device-height,
+          initial-scale=1.0,
+          maximum-scale=1.0,
+          user-scalable=no"/>
 
-        <!-- Custom PreStyle code is injected here -->
-        
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 
-        <!-- Set the background colour of the document -->
-        <style>
-            body {
-                background: #0;
-                color: #cccccc;
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-                height: 100%;
-            }
+    <meta http-equiv="pragma" content="no-cache"/>
 
-            canvas {
-                image-rendering: optimizeSpeed;
-                -webkit-interpolation-mode: nearest-neighbor;
-                -ms-touch-action: none;
-                touch-action: none;
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-                width: 100%;
-                height: 100%;
-            }
-            :-webkit-full-screen #canvas {
-                width: 100%;
-                height: 100%;
-            }
-            :-webkit-full-screen {
-                width: 100%;
-                height: 100%;
-            }
-            
-            /* Custom Runner Styles */
-            div.gm4html5_div_class {
-                margin: 0px;
-                padding: 0px;
-                border: 0px;
-            }
-            div.gm4html5_login {
-                padding: 20px;
-                position: absolute;
-                border: solid 2px #000000;
-                background-color: #404040;
-                color:#00ff00;
-                border-radius: 15px;
-                box-shadow: #101010 20px 20px 40px;
-            }
-            div.gm4html5_cancel_button {
-                float: right;
-            }
-            div.gm4html5_login_button {
-                float: left;
-            }
-            div.gm4html5_login_header {
-                text-align: center;
-            }
-            /* END - Custom Runner Styles */
-            
-        </style>
+    <title>Meu Jogo</title>
 
-        <!-- Custom PostStyle code is injected here -->
-        
+    <style>
 
-        <!-- Builtin injector for injecting flurry analytics code -->
-        
-    </head>
+        html, body {
 
-    <!-- Custom PostHead code is injected here -->
-    
+            margin: 0;
+            padding: 0;
 
-    <!-- Custom PreBody code is injected here -->
-    
+            width: 100%;
+            height: 100%;
 
-    <body>
-        <div class="gm4html5_div_class" id="gm4html5_div_id">
-            
-            <!-- Builtin injector for splash screen -->
-            
+            overflow: hidden;
 
-            <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="1024" height="768" style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);">
-                <p>Your browser doesn't support HTML5 canvas.</p>
-            </canvas>
-        </div>
+            background: black;
+        }
 
-        <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/juntablocos.js?cachebust=1616893754"></script>
+        body {
 
-        <!-- Builtin injector for injecting runner path -->
-        
+            display: flex;
 
-        <script>window.onload = GameMaker_Init;</script>
+            justify-content: center;
+            align-items: center;
+        }
 
-        <!-- Builtin injector for injecting google analytics code -->
-        <script>
-            // Função para verificar e aplicar estilos dinâmicos
-            function applyDynamicStyles() {
-                var viewportWidth = window.innerWidth;
-                var viewportHeight = window.innerHeight;
-                var canva = document.getElementById("canvas");
+        #gm4html5_div_id {
 
-                var dynamicCSS = document.getElementsByTagName("style");
+            width: 100vw;
+            height: 100vh;
 
-                if (viewportWidth / 16 > viewportHeight / 9) {
-                    canva.style.width = 'auto';
-                    canva.style.height = '100%';
-                } else {
-                    canva.style.width = '100%';
-                    canva.style.height = 'auto'
-                }
-            }
+            display: flex;
 
-            // Aplicar estilos dinâmicos na inicialização e sempre que a janela for redimensionada
-            window.addEventListener('resize', applyDynamicStyles);
-            applyDynamicStyles(); // Chamar a função uma vez na inicialização
-        </script>
+            justify-content: center;
+            align-items: center;
 
-    </body>
+            overflow: hidden;
+        }
 
-    <!-- Custom PostBody code is injected here -->
-    
+        canvas {
+
+            display: block;
+
+            margin: auto;
+
+            border: 0;
+            padding: 0;
+
+            touch-action: none;
+
+            image-rendering: auto;
+
+            image-rendering: optimizeSpeed;
+
+            -webkit-interpolation-mode: nearest-neighbor;
+
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        :-webkit-full-screen canvas {
+
+            width: auto !important;
+            height: auto !important;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="gm4html5_div_id">
+
+        <canvas id="canvas" width="1024" height="768">
+
+            Seu navegador não suporta HTML5.
+
+        </canvas>
+
+    </div>
+
+    <script type="text/javascript" src="html5game/juntablocos.js?cachebust=1616893754"></script>
+
+    <script>
+
+        function resizeGame() {
+
+            const canvas = document.getElementById("canvas");
+
+            const gameWidth = 1024;
+            const gameHeight = 768;
+
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            const scale = Math.min(
+                windowWidth / gameWidth,
+                windowHeight / gameHeight
+            );
+
+            const newWidth = gameWidth * scale;
+            const newHeight = gameHeight * scale;
+
+            canvas.style.width = newWidth + "px";
+            canvas.style.height = newHeight + "px";
+        }
+
+        window.addEventListener("resize", resizeGame);
+
+        window.addEventListener("orientationchange", resizeGame);
+
+        window.onload = function () {
+
+            GameMaker_Init();
+
+            resizeGame();
+        };
+
+    </script>
+
+</body>
+
 </html>

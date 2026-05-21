@@ -12,7 +12,8 @@
           height=device-height,
           initial-scale=1.0,
           maximum-scale=1.0,
-          user-scalable=no"/>
+          user-scalable=no,
+          viewport-fit=cover"/>
 
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -33,7 +34,11 @@
 
             overflow: hidden;
 
-            background: black;
+            background: #000;
+
+            touch-action: manipulation;
+
+            overscroll-behavior: none;
         }
 
         body {
@@ -46,6 +51,11 @@
 
         #gm4html5_div_id {
 
+            position: fixed;
+
+            left: 0;
+            top: 0;
+
             width: 100vw;
             height: 100vh;
 
@@ -55,6 +65,8 @@
             align-items: center;
 
             overflow: hidden;
+
+            background: #000;
         }
 
         canvas {
@@ -66,7 +78,11 @@
             border: 0;
             padding: 0;
 
-            touch-action: none;
+            outline: none;
+
+            touch-action: manipulation;
+
+            pointer-events: auto;
 
             image-rendering: auto;
 
@@ -92,7 +108,7 @@
 
     <div id="gm4html5_div_id">
 
-        <canvas id="canvas" width="1024" height="768">
+        <canvas id="canvas" width="1024" height="768" tabindex="0">
 
             Seu navegador não suporta HTML5.
 
@@ -126,15 +142,31 @@
             canvas.style.height = newHeight + "px";
         }
 
+        function focusCanvas() {
+
+            const canvas = document.getElementById("canvas");
+
+            canvas.focus();
+        }
+
         window.addEventListener("resize", resizeGame);
 
-        window.addEventListener("orientationchange", resizeGame);
+        window.addEventListener("orientationchange", function () {
+
+            setTimeout(resizeGame, 200);
+        });
+
+        document.addEventListener("touchstart", focusCanvas, false);
+
+        document.addEventListener("click", focusCanvas, false);
 
         window.onload = function () {
 
             GameMaker_Init();
 
             resizeGame();
+
+            focusCanvas();
         };
 
     </script>
